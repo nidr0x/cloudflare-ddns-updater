@@ -1,4 +1,4 @@
-# Dynamic DNS Updater
+# Cloudflare dynamic DNS updater
 
 This script updates the A record of a domain hosted in Cloudflare with the current public IP address. This is useful when you are using services like `external-dns`.
 
@@ -14,7 +14,7 @@ This script updates the A record of a domain hosted in Cloudflare with the curre
 2. Define `$CLOUDFLARE_API_KEY` and `$CLOUDFLARE_EMAIL` with your credentials
 3. Run the script using `python cloudflare-ddns.py`
 
-## Code Explanation
+## Code explanation
 
 The script performs the following steps:
 

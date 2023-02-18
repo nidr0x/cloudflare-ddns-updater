@@ -1,0 +1,2 @@
+cloudflare==2.11.1
+urllib3==1.26.12

@@ -1,16 +1,14 @@
-import urllib.request
+import requests
 import CloudFlare
 
 def external_ips():
-    ipv4_url = 'https://4.ident.me'
-    ipv6_url = 'https://6.ident.me'
+    ipv4_url = 'https://ipv4.icanhazip.com/'
+    ipv6_url = 'https://ipv6.icanhazip.com/'
     try:
-        external_ipv4 = urllib.request.urlopen(ipv4_url).read().decode('utf8')
-        external_ipv6 = urllib.request.urlopen(ipv6_url).read().decode('utf8')
-    except:
-        exit('%s: failed' % (ipv4_url))
-    if external_ipv4 == '':
-        exit('%s: failed' % (ipv4_url))
+        external_ipv4 = requests.get(ipv4_url).text.strip()
+        external_ipv6 = requests.get(ipv6_url).text.strip()
+    except requests.exceptions.RequestException as e:
+        exit(f'{ipv4_url}: failed - {e}')
     print(f"Current IP addresses are IPv4 {external_ipv4} and IPv6 {external_ipv6}")
     return (external_ipv4, external_ipv6)
 

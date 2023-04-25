@@ -5,10 +5,16 @@ def external_ips():
     ipv4_url = 'https://ipv4.icanhazip.com/'
     ipv6_url = 'https://ipv6.icanhazip.com/'
     try:
-        external_ipv4 = requests.get(ipv4_url).text.strip()
         external_ipv6 = requests.get(ipv6_url).text.strip()
     except requests.exceptions.RequestException as e:
+        print(f'Warning: Failed to obtain IPv6 address - {e}')
+        external_ipv6 = None
+
+    try:
+        external_ipv4 = requests.get(ipv4_url).text.strip()
+    except requests.exceptions.RequestException as e:
         exit(f'{ipv4_url}: failed - {e}')
+
     print(f"Current IP addresses are IPv4 {external_ipv4} and IPv6 {external_ipv6}")
     return (external_ipv4, external_ipv6)
 

@@ -63,14 +63,6 @@ def main():
                         print(f"Error updating record {dns_record['name']}: {e}")
                     print(f"UPDATED: {dns_record['name']} {dns_record['content']} -> {external_ipv6}")
 
-            else:
-                try:
-                    cf.zones.dns_records.delete(zone_id, dns_record['id'])
-                    print(f"Record {dns_record['name']} deleted successfully!")
-                except CloudFlare.exceptions.CloudFlareAPIError as e:
-                    print(f"Error deleting record {dns_record['name']}: {e}")
-                print(f"DELETED: {dns_record['name']} {dns_record['content']}")
-
     exit(0)
 
 if __name__ == '__main__':

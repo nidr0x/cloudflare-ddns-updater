@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "cloudflare-ddns"
+version = "0.0.1"
+description = "Cloudflare DDNS updater"
+authors = ["nidr0x <nidr0x@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+cloudflare = "2.11.1"
+urllib3 = "1.26.12"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

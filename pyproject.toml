@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 cloudflare = "2.11.1"
-urllib3 = "1.26.12"
+urllib3 = "2.7.0"
 
 
 [build-system]
